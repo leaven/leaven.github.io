@@ -48,7 +48,7 @@ Redux是一个思想，并不是react的一个插件，适用于UI基于状态�
 <meta property="og:image" content="http://7xof2i.com1.z0.glb.clouddn.com/1333E816-AE5B-4BEC-903B-F05D596E6D78.png">
 <meta property="og:image" content="http://7xof2i.com1.z0.glb.clouddn.com/ars.png">
 <meta property="og:image" content="http://7xof2i.com1.z0.glb.clouddn.com/boss.png">
-<meta property="og:updated_time" content="2016-01-09T07:57:53.000Z">
+<meta property="og:updated_time" content="2016-01-09T09:17:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redux概述（一）">
 <meta name="twitter:description" content="本文主要阐释基本的redux概念，并基于react实现一些demo，demo部分会用到webpack，es6，本文对此不做介绍，本文适合想要入门redux的同学，不适合已经有实践经验的工程师，本文尽量避免官方文档中的晦涩难懂的概念，根据本人的实际经验与理解进行描述。
@@ -213,7 +213,7 @@ Redux是一个思想，并不是react的一个插件，适用于UI基于状态�
 <p><code>Redux</code>是一个思想，并不是<code>react</code>的一个插件，适用于UI基于状态模式的解决方案，而<code>react</code>基于状态的数据流思想完美地契合了<code>redux</code>，所以目前<code>redux</code>大多被用在了<code>react</code>上面。</p>
 <h2 id="目的">目的</h2><p>传统的开发方式一般是<code>View</code>跟<code>Model</code>双向绑定，任何一方的改变都会影响另一方，一个<code>View</code>通常会关联多个<code>Model</code>，一个<code>Model</code>也会关联多个<code>View</code>，往往项目复杂到一定程度后，一个事件监听中会有多个回调，而这些都得你手动去维护，这就是为什么<strong>有时候一个需求很小，但是做起来很复杂的原因</strong>，精力都被分配到处理以前的逻辑上了。<br><img src="http://7xof2i.com1.z0.glb.clouddn.com/1333E816-AE5B-4BEC-903B-F05D596E6D78.png" alt="MV双向绑定"><br>redux采用了一个reducer的概念，将所有的状态集中在一个地方管理，View层不允许通过dom等操作直接改变state以做到view与data的解耦。</p>
 <h2 id="设计思想">设计思想</h2><p>redux有三个新概念，action、reducer、store，看个图<br><img src="http://7xof2i.com1.z0.glb.clouddn.com/ars.png" alt="enter image description here"><br>官方说法太啰嗦，我简化一下，action是一个函数，代表一个操作，action中必须返回一个字段对动作进行唯一标识，标识的意义也是为了让reducer能够识别每个动作去处理。reducer可以接收action的动作，对state进行操作。<br>store就是一个大脑，有三个方法分别为<strong>getState()</strong>、<strong>dispatch（action）</strong>、<strong>subscribe()</strong>对应<strong>store</strong>、<strong>action</strong>、<strong>reducer</strong>，getState()用于获取state树， dispatch(action)用于派发action，subscribe()用于监听action执行对应reducer操作。<br>举个栗子，<strong>store</strong>就相当于你的<strong>老板</strong>，<strong>action</strong>就是你老板<strong>制定KPI</strong>，每个<strong>reducer</strong>就是各个团队的<strong>经理</strong>。<br>年初你老板会为每个团队制定一条或者几条KPI，制定完之后，相关的团队经理会去执行相关KPI，年末每个团队经理会把执行情况反馈给你老板，这就是一个典型的redux流。公司里只有一个老板，不能有多个，不然会乱了套，经理数量需要根据公司大小去安排，KPI可以制定多个，每个经理可以根据自己的属性或者能力领一个或者多个。<br><img src="http://7xof2i.com1.z0.glb.clouddn.com/boss.png" alt="enter image description here"><br>所以一家井井有条的公司运行机制一定是这样的，而公司的组织架构划分则显得尤为重要，这就像redux中的reducer拆分，我们需要站在一个整体的高度上面去抽象去建模，这样才能让组织更高效地运转。</p>
-<p>##DEMO<br>demo是一个基于redux的红绿灯控制系统的实现，戳<a href="http://leavenfe.com/redux-demo/">这里</a>查看效果，源码请戳<a href="https://github.com/leaven/redux-demo" target="_blank" rel="external">这里</a>。</p>
+<h2 id="DEMO">DEMO</h2><p>demo是一个基于redux的红绿灯控制系统的实现，戳<a href="http://leavenfe.com/redux-demo/">这里</a>查看效果，源码请戳<a href="https://github.com/leaven/redux-demo" target="_blank" rel="external">这里</a>。</p>
 <p>(完)</p>
 </span>
       
@@ -348,7 +348,7 @@ Redux是一个思想，并不是react的一个插件，适用于UI基于状态�
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计思想"><span class="nav-number">2.</span> <span class="nav-text">设计思想</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计思想"><span class="nav-number">2.</span> <span class="nav-text">设计思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEMO"><span class="nav-number">3.</span> <span class="nav-text">DEMO</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
