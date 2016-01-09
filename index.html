@@ -1,0 +1,924 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端汇">
+<meta property="og:url" content="http://leavenfe.com/index.html">
+<meta property="og:site_name" content="前端汇">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端汇">
+<meta name="twitter:description">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 前端汇 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7b5185b3a08dbeb21d3c73e451664bd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column 
+   page-home 
+">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">前端汇</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+  <section id="posts" class="posts-expand">
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/01/09/Redux概述（一）/" itemprop="url">
+                Redux概述（一）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-09T15:56:31+08:00" content="2016-01-09">
+            2016-01-09
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/09/Redux概述（一）/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/09/Redux概述（一）/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>本文主要阐释基本的<code>redux</code>概念，并基于react实现一些<code>demo</code>，<code>demo</code>部分会用到<code>webpack</code>，<code>es6</code>，本文对此不做介绍，本文适合想要入门<code>redux</code>的同学，不适合已经有实践经验的工程师，本文尽量避免官方文档中的晦涩难懂的概念，根据本人的实际经验与理解进行描述。</p>
+</blockquote>
+<p><code>Redux</code>是一个思想，并不是<code>react</code>的一个插件，适用于UI基于状态模式的解决方案，而<code>react</code>基于状态的数据流思想完美地契合了<code>redux</code>，所以目前<code>redux</code>大多被用在了<code>react</code>上面。</p>
+<h2 id="目的">目的</h2><p>传统的开发方式一般是<code>View</code>跟<code>Model</code>双向绑定，任何一方的改变都会影响另一方，一个<code>View</code>通常会关联多个<code>Model</code>，一个<code>Model</code>也会关联多个<code>View</code>，往往项目复杂到一定程度后，一个事件监听中会有多个回调，而这些都得你手动去维护，这就是为什么<strong>有时候一个需求很小，但是做起来很复杂的原因</strong>，精力都被分配到处理以前的逻辑上了。<br><img src="http://7xof2i.com1.z0.glb.clouddn.com/1333E816-AE5B-4BEC-903B-F05D596E6D78.png" alt="MV双向绑定"><br>redux采用了一个reducer的概念，将所有的状态集中在一个地方管理，View层不允许通过dom等操作直接改变state以做到view与data的解耦。</p>
+<h2 id="设计思想">设计思想</h2><p>redux有三个新概念，action、reducer、store，看个图<br><img src="http://7xof2i.com1.z0.glb.clouddn.com/ars.png" alt="enter image description here"><br>官方说法太啰嗦，我简化一下，action是一个函数，代表一个操作，action中必须返回一个字段对动作进行唯一标识，标识的意义也是为了让reducer能够识别每个动作去处理。reducer可以接收action的动作，对state进行操作。<br>store就是一个大脑，有三个方法分别为<strong>getState()</strong>、<strong>dispatch（action）</strong>、<strong>subscribe()</strong>对应<strong>store</strong>、<strong>action</strong>、<strong>reducer</strong>，getState()用于获取state树， dispatch(action)用于派发action，subscribe()用于监听action执行对应reducer操作。<br>举个栗子，<strong>store</strong>就相当于你的<strong>老板</strong>，<strong>action</strong>就是你老板<strong>制定KPI</strong>，每个<strong>reducer</strong>就是各个团队的<strong>经理</strong>。<br>年初你老板会为每个团队制定一条或者几条KPI，制定完之后，相关的团队经理会去执行相关KPI，年末每个团队经理会把执行情况反馈给你老板，这就是一个典型的redux流。公司里只有一个老板，不能有多个，不然会乱了套，经理数量需要根据公司大小去安排，KPI可以制定多个，每个经理可以根据自己的属性或者能力领一个或者多个。<br><img src="http://7xof2i.com1.z0.glb.clouddn.com/boss.png" alt="enter image description here"><br>所以一家井井有条的公司运行机制一定是这样的，而公司的组织架构划分则显得尤为重要，这就像redux中的reducer拆分，我们需要站在一个整体的高度上面去抽象去建模，这样才能让组织更高效地运转。</p>
+<p>##DEMO<br>demo是一个基于redux的红绿灯控制系统的实现，戳<a href="http://leavenfe.com/redux-demo/">这里</a>查看效果，源码请戳<a href="https://github.com/leaven/redux-demo" target="_blank" rel="external">这里</a>。</p>
+<p>(完)</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/01/02/写在2016/" itemprop="url">
+                写在2016
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-02T21:00:00+08:00" content="2016-01-02">
+            2016-01-02
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/02/写在2016/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/02/写在2016/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="写在2016">写在2016</h1><p>  &nbsp;&nbsp; 2015年已经过去，回顾2015，发生了很多对我而言非常有意义的大事，找到了一个爱我的女朋友，经历了人生第一次跳槽。</p>
+<hr>
+<p> &nbsp;&nbsp;先说说工作上的事，离开百度这个想法年初的时候就有了，在14年下半年我就感觉到自己已经不适合呆在百度了，技术上的成长缓慢让我感觉惶恐，14年年底的时候打算tran部门，之后boss答应给我技术转型，由业务驱动转为技术驱动，虽然说最终我还是离开了，但是现在看来还得感谢这次的技术转型，让我发现了自身的不足。</p>
+<hr>
+<p>&nbsp;&nbsp;上次在会上有同学抛出了一个这样的观点，<strong>外驱转为自驱并不困难，只需要一个临界点就可以改变，每个人都可以</strong>。我表示非常赞同，事后我也回忆了一下我的经历，这次技术转型算是一个临界点，奠定了我在15年里获得的巨大成长的基础。</p>
+<hr>
+<p>   &nbsp;&nbsp; 15年年中，跳槽加入滴滴，现在回忆也是我做的最为明智的决定，当时手中有几个offer犹豫不决，多亏了一个资深猎头的指点，让我最后坚决地选择了滴滴，事实证明我的选择是对的，正如来滴滴巴士之前，GM问我为什么选择加入滴滴，我说，<strong>I want to get on a rocket ship</strong>。在加入滴滴的这半年里，巴士由零做到了三个业务线，我自己也如同一艘火箭船，完成了多个自我突破，当然这也得感谢我的老大，并没有给我多少压力，而是给了足够的空间能够让我自由去发挥。</p>
+<hr>
+<p> &nbsp;&nbsp;在这过去的一年里，技术上我成长了不少，15年的前端生态圈百花齐放，新陈代谢，站在前人的肩膀上给了我们不少弯道超车的机会。跳槽到滴滴以后我的架构设计能力得到了显著的提高，技术视野也保持跟业界标准平行，react、redux、es6|7标准都已经在生产环境使用，Native App接入React Native也在计划中，I/O通信的node方案也在调研中。一些基础知识我也在夯实，看了几个章节的HTTP权威指南，再次review了javascript高级程序设计，设计模式也通读了一遍。</p>
+<hr>
+<p>&nbsp;&nbsp;但是需要做的还有很多，自身还有很多不足，团队管理经验缺乏，对后端的架构不熟悉，很多东西目前只停留在会使用、了解，并没有对其有很深的见解。在新的一年里，我定了四个大概的计划：<br>1、阅读一个框架源码，深刻理解其精髓，例如 <code>react</code>等<br>2、对一些知识点加以实践，这些并不一定在工作中，可以通过demo形式展现，比如<code>http2.0</code>等，并用博客形式总结，计划一周一篇<br>3、尝试自己搭建一个博客系统，从前端到后端独立设计<br>4、每两个月读一本书，书的分类不限</p>
+<hr>
+<p>&nbsp;&nbsp;说了这么多工作以及个人成长计划，15年中还有一件重要的事就是遇到了我的女朋友，我跟她在15年初相识，也算是一个巧合，中间也有过吵架，但是更多的是她带给我的感动，感谢她帮我分担了很多苦恼，而我在忙于工作的同时也牺牲了不少陪她的时间，我想说声对不起，很多次她想要叫我去鼓楼去后海，都没去成了，15年也基本没去什么地方旅游，主要原因是我太懒，这些都需要改变，16年里初步计划每个月都去一次小景点，半年来一个远途旅游。</p>
+<hr>
+<p>&nbsp;&nbsp;健身也需要纳入计划，之前真的是太懒了，懒的动，所以经常肩颈难受，16年中平均每天都需要抽30分钟做一些运动，改善身体状况。</p>
+<hr>
+<p>还有一个未透露的就是15年中，我的厨艺得到了大大的提升，O(∩_∩)O哈哈~，从瓜果蔬菜到鸡鸭牛羊样样俱全，并且产生了自己的拿手好菜，希望今年过年回家可以露两手~</p>
+<hr>
+<p>&nbsp;&nbsp;以上就是我的新年计划，希望我的家人、亲人、同学、同事、朋友以及所有我认识的人在新年里健健康康，红红火火！</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/11/12/React入门（一）/" itemprop="url">
+                初探React
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-12T21:42:26+08:00" content="2015-11-12">
+            2015-11-12
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/12/React入门（一）/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/12/React入门（一）/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="初探React">初探React</h1><h2 id="Why_use_React">Why use React</h2><blockquote>
+<p>1、面向<strong>View</strong>层开发，一切皆组件<br>2、单向数据流<br>3、VirtualDom，高性能渲染<br>4、Learn once，write everywhere.(React Native for IOS、React Native for Android)<br>5、github star数量已破3W</p>
+</blockquote>
+<h2 id="Begin_With_React">Begin With React</h2><p> 1、<code>require &#39;react&#39;</code><br> 2、<code>require &#39;react-dom&#39;</code><br> 3、因为<code>react</code>语法需要<code>jsx</code>编译引擎，所以需要引入<code>jsx</code>编译脚本，<a href="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js" target="_blank" rel="external">传送门</a></p>
+<p>现在我们在页面中渲染一个<a href="https://github.com/leaven/react-demos/blob/master/demo1.html" target="_blank" rel="external">HelloWorld</a></p>
+<pre><code>var HelloWorld = React.createClass<span class="params">({
+  render: function<span class="params">()</span> {
+    return <span class="params">(
+        &lt;div&gt;
+          HelloWorld
+        &lt;/div&gt;
+    )</span>;
+  }
+})</span>;
+ReactDOM.<span class="built_in">render</span><span class="params">(
+  &lt;HelloWorld /&gt;,
+  document.getElementById<span class="params">(<span class="string">"helloworld"</span>)</span>
+)</span>;
+</code></pre><p>实际效果请戳<a href="http://leavenfe.com/react-demos/demo1.html">这里</a><br>  <code>ReactDOM.render</code>能将<code>JSX</code>模板编译成<code>HTML</code>插入到相应的<code>element</code>中。<br>  <strong>注意</strong>：<br>  1、自定义的类必须以大写字母开头，如果用小写字母会被认为是标准<code>html</code>元素，导致不能被解析**；<br>  2、<code>return</code>返回必须需要<code>dom</code>标签包裹，否则会不能被解析；<br>  3、JSX 的基本语法规则：遇到 HTML 标签（以 &lt; 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。</p>
+<h2 id="Props">Props</h2><p>Props是组件数据传递的载体，外部数据通过props将数据传递到组件内部，下面我们通过一个例子说明一下，<em><a href="https://github.com/leaven/react-demos/blob/master/demo3.html" target="_blank" rel="external">源码地址</a></em></p>
+<pre><code><span class="keyword">var</span> HelloWorld = React.createClass({
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> (
+        &lt;div&gt;
+          Hello,{<span class="keyword">this</span>.props.name}
+        &lt;/div&gt;
+    );
+  }
+});
+ReactDOM.render(
+  &lt;HelloWorld  name=<span class="string">"leaven"</span>/&gt;,
+  document.getElementById(<span class="string">'example'</span>)
+);
+</code></pre><p>实际效果戳<a href="http://leavenfe.com/react-demos/demo3.html">这里</a><br>组件上可以增加任意属性（类似于我们在<code>dom</code>上添加<code>data-*</code>），组件内中可以通过<code>this.props.*</code>获取到组件上的自定义属性。</p>
+<h2 id="State">State</h2><p><code>state</code>是<code>React</code>中一个非常重要的概念，所有的UI改变都是通过改变state发生，<code>state</code>改变能够触发UI重绘，所以，所有的交互状态我们都应该尝试去改变<code>state</code>，这一点跟传统的<code>dom</code>交互大不一样，看下面的一个<a href="http://leavenfe.com/react-demos/demo4.html">例子</a></p>
+<pre><code><span class="keyword">var</span> HelloWorld = React.createClass({
+  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+
+    <span class="keyword">this</span>.loadData();
+    <span class="keyword">return</span> {data: []};
+  },
+  loadData: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">var</span> me = <span class="keyword">this</span>;
+      $.getJSON(<span class="keyword">this</span>.props.url, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> </span>{
+        me.setState({data: data});
+      });
+  },
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">var</span> person = <span class="keyword">this</span>.state.data.map(<span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> </span>{
+      <span class="keyword">return</span> (
+        &lt;div className=<span class="string">"name"</span> key={i}&gt;
+          name:{d.name}, age:{d.age}
+        &lt;/div&gt; 
+      )
+    });
+    <span class="keyword">return</span> (
+       &lt;div&gt;
+          {person}
+       &lt;/div&gt;
+    );
+  }
+});
+ReactDOM.render(
+  &lt;HelloWorld url=<span class="string">"./data/demo4.json"</span>/&gt;,
+  document.getElementById(<span class="string">'example'</span>)
+);
+</code></pre><p><em><a href="https://github.com/leaven/react-demos" target="_blank" rel="external">源码地址</a></em><br>在请求到数据后，我们将<code>state</code>置为获得的<code>data</code>，导致<code>render</code>方法被执行。<br><strong>注意</strong><br>1、这里的<code>map</code>会返回一个数组，每一个元素都需要设置一个<code>key</code>，这里建议<code>key</code>设为数组的索引值，因为索引值能保证每个不一样；<br>2、关于<code>state</code>及<code>props</code>适用场景请参考<a href="http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html" target="_blank" rel="external">这里</a>。</p>
+<h2 id="事件监听">事件监听</h2><p><code>React</code>中绑定事件监听类似于<code>DOM</code> 0级事件，看下面的<a href="http://leavenfe.com/react-demos/demo2.html">例子</a></p>
+<pre><code><span class="keyword">var</span> HelloWolrd = React.createClass({
+  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> {
+          isName: <span class="literal">false</span>
+      }
+  },
+  changeValue: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">this</span>.setState({<span class="string">"isName"</span>: (<span class="keyword">this</span>.state.isName?<span class="literal">false</span>: <span class="literal">true</span>)});
+  },
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> (
+          &lt;div&gt;
+              Hello, {<span class="keyword">this</span>.state.isName? <span class="string">'leaven'</span>: <span class="string">'world'</span>}
+              &lt;button onClick={<span class="keyword">this</span>.changeValue}&gt;点击此处改变name&lt;/button&gt;      
+          &lt;/div&gt;
+        );
+  }
+});
+ReactDOM.render(
+  &lt;HelloWolrd /&gt;,
+  document.getElementById(<span class="string">'example'</span>)
+);
+</code></pre><p><em><a href="https://github.com/leaven/react-demos/blob/master/demo2.html" target="_blank" rel="external">源码地址</a></em><br><strong>注意</strong><br>1、<code>react</code>中事件回调函数中的<code>this</code>会自动绑定到实例上，这里有个特殊情况，就是在<code>es6</code>中需要手动绑定。</p>
+<h2 id="获取DOM对象">获取DOM对象</h2><p>获取组件内部的dom对象可以通过<code>ref</code>，<code>this.refs</code>是一个<code>dom</code>节点的引用数组，看下面的<a href="http://leavenfe.com/react-demos/demo7.html">例子</a></p>
+<pre><code><span class="keyword">var</span> InputChange = React.createClass({
+    getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> {
+        inputValue: <span class="string">''</span>
+      }
+    },
+    getValue: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">var</span> value = <span class="keyword">this</span>.refs.nameInput.value;
+      <span class="keyword">this</span>.setState({<span class="string">"name"</span>: value});
+    },
+    render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> (
+        &lt;div&gt;
+          &lt;input type=<span class="string">"text"</span> ref=<span class="string">"nameInput"</span> onInput={<span class="keyword">this</span>.getValue} /&gt;
+          &lt;span&gt;您输入的名字是：{<span class="keyword">this</span>.state.name}&lt;/span&gt;
+        &lt;/div&gt;
+      )
+    }
+  });
+  ReactDOM.render(
+    &lt;InputChange /&gt;,
+    document.getElementById(<span class="string">"example"</span>)
+  );
+</code></pre><p><a href="https://github.com/leaven/react-demos/blob/master/demo7.html" target="_blank" rel="external">源码地址</a><br>上面代码将<code>input</code>挂到了一个<code>nameInput</code>引用对象，在组件类中通过<code>this.refs.nameInput</code>引用到该<code>input</code>。</p>
+<h2 id="组件生命周期">组件生命周期</h2><p><code>React</code>跟传统的<code>DOM</code>编程不一样，在React中组件的生命状态都在一个<code>order</code>里面，井井有条，什么阶段执行什么方法都由<code>React</code>去完成，所以会比较清晰。<br>1、<strong>componentWillMount</strong><br>在组件即将<code>render</code>之前立即调用，只会被调用一次<br>2、<strong>componentDidMount</strong><br>在组件<code>render</code>之后立即调用，只会被调用一次<br>3、<strong>componentWillReceiveProps</strong><br>在改变组件的<code>props</code>属性时立即调用，在组件初始化的时候不会被调用<br>4、<strong>shouldComponentUpdate</strong><br>在组件<code>props</code>或者<code>state</code>状态改变之前调用，在组件初始化或者用<code>forceUpdate</code>方法时不会被调用，可以利用这个方法<code>return false</code>即可阻止<code>componentWillUpdate</code>调用<br>5、<strong>componentWillUpdate</strong><br>在<code>shouldComponentUpdate</code>调用之后立即调用<br>6、<strong>componentDidUpdate</strong><br>在<code>componentWillUpdate</code>之后刷新<code>DOM</code>完成之后调用<br>7、<strong>componentWillUnmount</strong><br>在组件被销毁的时候调用</p>
+<h2 id="React未来展望">React未来展望</h2><p>1、配合<code>Flux</code>、<code>Redux</code>等框架构建大型应用<br><code>React</code>只是提供了<code>View</code>层，面对复杂的数据处理显得有些乏力，借助于<code>Flux</code>、<code>Redux</code>等框架，我们可以轻松实现数据管理。<br>2、 <code>React Native</code>构建通用<code>UI</code>组件</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/09/04/前端开发之观察者模式/" itemprop="url">
+                前端开发之观察者模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-04T20:48:50+08:00" content="2015-09-04">
+            2015-09-04
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/04/前端开发之观察者模式/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/04/前端开发之观察者模式/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="前端开发之观察者模式">前端开发之观察者模式</h1><h2 id="什么是观察者模式">什么是观察者模式</h2><p>观察者模式（有时又被称为发布-订阅Subscribe&gt;模式、模型-视图View&gt;模式、源-收听者Listener&gt;模式或从属者模式）是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统。（来源于百度百科）</p>
+<p>还是不懂，没关系<br><img src="http://i3.tietuku.com/55b39fe9dadeb6a1.jpg" alt="栗子"></p>
+<p>今天晚上老大要上线一个活动，这时候PM来通知你了，<br>“XX，今天有个活动需要你支持一下，巴拉巴拉，上线了发个邮件给我，我先回家了。”<br>“尼玛，F**K！”<br>但是没办法，这个事件已经跟你绑定了，只有完成条件才能解绑，于是你疯狂code，终于上完了线，发了邮件通报，这个时候这个事件才算完成。</p>
+<p>这个栗子里面，PM就是一个订阅者(bind)，向你订阅了一个邮件通报，他可以不用关心你的code过程，只需要获得通知即可。你就是一个发布者，在满足上线这个要求后，才触发了发邮件的操作（trigger）。</p>
+<h2 id="观察者模式适用场景">观察者模式适用场景</h2><p>百度百科里面有个单词大家不造有没有注意到，事件处理，而javascript就是纯事件驱动的语言。为什么说事件驱动适合用观察者模式解决，分析一下事件产生的要素你就知道，一个事件必须包含事件时间、事件对象、事件起因、事件经过、事件结果。<br>什么！你要把这些全跟我说！<br><img src="http://i3.tietuku.com/9e61aa7de3dd0a56.png" alt="唐僧"></p>
+<p>对于一个日理万机的攻城狮来说，你TM只要告诉我事件结果就好了，我只需要知道这个事情已经发生即可。</p>
+<h2 id="前端之观察者模式应用">前端之观察者模式应用</h2><p>PM：在每个播放的链接上加个调起逻辑</p>
+<p>ok，so easy，最常见的实现使用事件委托</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">openAPP</span><span class="params">(<span class="keyword">event</span>)</span> <span class="comment">{
+    event.preventDefault();
+    //open app
+    ......
+}</span>
+$<span class="params">(<span class="string">'body'</span>)</span>.<span class="title">on</span><span class="params">(<span class="string">'click'</span>, <span class="string">'[data-openapp=true]'</span>, openAPP)</span>;</span>
+</code></pre><p>然而事情没有那么简单：</p>
+<p>PM：现在登录的用户直接播放，未登录的用户弹登录框<br>Coder：OK!<br>如果你的登录接口是个异步请求，你可能会这样做：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"></span>) </span>{
+    $.ajax({
+        url: <span class="string">'/login'</span>,
+        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+            <span class="keyword">if</span>(data.login === <span class="literal">true</span>) {
+                <span class="built_in">window</span>.login = <span class="literal">true</span>;
+            }
+        }
+    });
+}
+$(<span class="string">'body'</span>).on(<span class="string">'click'</span>, <span class="string">'[data-openapp=true]'</span>,     <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{
+    event.preventDefault();
+    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">window</span>.login !== <span class="string">'undefined'</span>
+        &amp;&amp; <span class="built_in">window</span>.login === <span class="literal">true</span>) {
+        location.href = $(<span class="keyword">this</span>).data(<span class="string">'openapp-url'</span>);
+    }<span class="keyword">else</span> {
+        <span class="comment">//show dialog</span>
+        ......
+    }
+}
+</code></pre><p>你以为事情完了吗？NO</p>
+<p>PM：已登录的用户不用展示首屏广告了，另外送个五块钱券吧！<br>Coder：WTF！<br>没办法，改吧。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">showADs</span>(<span class="params"></span>) </span>{
+    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">window</span>.login !== <span class="string">'undefined'</span>
+        &amp;&amp; <span class="built_in">window</span>.login === <span class="literal">true</span>) {
+        <span class="keyword">return</span>;
+    }<span class="keyword">else</span> {
+        <span class="comment">//show ads</span>
+        ......
+    }
+}
+<span class="comment">//送券部分省略</span>
+</code></pre><p>然而以上代码只适用于模板登录情况，如果登录接口是异步接口呢，那只能去login回调函数里面加一个去除广告的逻辑了。事情做到这，你有没有感觉到一丝丝egg hurt，如果PM再加这样的逻辑肿么办？有没有办法做到登录之后就发出通知呢，所有的跟登录相关的事件都绑定到这个通知上去？</p>
+<p>仔细分析浏览器事件绑定的原理，我们可以发现，案列一中那个最常见的dom事件绑定代码，其实内部实现原理是这样子的，浏览器为每个节点维护一个eventMap，类似于</p>
+<pre><code><span class="atom">eventMap</span> = {
+    <span class="string">'click'</span> : [
+        <span class="atom">fn1</span>,
+        <span class="atom">fn2</span>
+    ],
+    <span class="string">'touchstart'</span> : [
+        <span class="atom">fn3</span>,
+        <span class="atom">fn4</span>
+    ]
+}
+</code></pre><p>当浏览器USER Interface线程捕获到用户的click操作时，浏览器就去eventMap里面查找索引为click数据，发现里面有fn1、fn2，并依次执行。</p>
+<p>在上面的代码中，我们只是向浏览器订阅了一个click事件，事件在什么时候、什么时间触发全都由浏览器内部实现。在发生click的时候你可以执行fn1、fn2、….fnn。这个不就是我们所需要解决的事件耦合的问题嘛！事情到这，就很简单了，我们只需要实现一个自定义事件队列即可。<br>参考code，来自alloyteam</p>
+<pre><code>Events = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+
+   <span class="keyword">var</span> listen, log, obj, one, remove, trigger, __this;
+
+   obj = {};
+
+   __this = <span class="keyword">this</span>;
+
+   listen = <span class="function"><span class="keyword">function</span>(<span class="params"> key, eventfn </span>) </span>{  
+
+     <span class="keyword">var</span> stack, _ref;  
+
+     stack = ( _ref = obj[key] ) != <span class="literal">null</span> ? _ref : obj[ key ] = [];
+
+     <span class="keyword">return</span> stack.push( eventfn );
+
+   };
+
+   one = <span class="function"><span class="keyword">function</span>(<span class="params"> key, eventfn </span>) </span>{
+
+     remove( key );
+
+     <span class="keyword">return</span> listen( key, eventfn );
+
+   };
+
+   remove = <span class="function"><span class="keyword">function</span>(<span class="params"> key </span>) </span>{
+
+     <span class="keyword">var</span> _ref;
+
+     <span class="keyword">return</span> ( _ref = obj[key] ) != <span class="literal">null</span> ? _ref.length = <span class="number">0</span> : <span class="keyword">void</span> <span class="number">0</span>;
+
+   };
+
+   trigger = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{  
+
+     <span class="keyword">var</span> fn, stack, _i, _len, _ref, key;
+
+     key = <span class="built_in">Array</span>.prototype.shift.call( <span class="built_in">arguments</span> ); 
+
+     stack = ( _ref = obj[ key ] ) != <span class="literal">null</span> ? _ref : obj[ key ] = [];
+
+     <span class="keyword">for</span> ( _i = <span class="number">0</span>, _len = stack.length; _i &lt; _len; _i++ ) {
+
+       fn = stack[ _i ];
+
+       <span class="keyword">if</span> ( fn.apply( __this,  <span class="built_in">arguments</span> ) === <span class="literal">false</span>) {
+
+         <span class="keyword">return</span> <span class="literal">false</span>;
+
+       }
+
+     }
+
+     <span class="keyword">return</span> {
+
+        listen: listen,
+
+        one: one,
+
+        remove: remove,
+
+        trigger: trigger
+
+     }
+
+   }
+</code></pre><p>现在再来改我们之前的代码</p>
+<pre><code><span class="keyword">var</span> eventCenter = <span class="keyword">new</span> Events();
+eventCenter.listen(<span class="string">'login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+    <span class="comment">//隐藏广告</span>
+    hideADs(<span class="built_in">arguments</span>);
+});
+eventCenter.listen(<span class="string">'login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+    <span class="comment">//登录播放跳转</span>
+    openUrl(<span class="built_in">arguments</span>);
+});
+eventCenter.listen(<span class="string">'login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+    <span class="comment">//赠送代金券</span>
+    sendCash(<span class="built_in">arguments</span>);
+});
+<span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"></span>) </span>{
+    $.ajax({
+        url: <span class="string">'/login'</span>,
+        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+            <span class="keyword">if</span>(data.login === <span class="literal">true</span>) {
+                eventCenter.trigger(<span class="string">'login'</span>);
+            }
+        }
+    });
+}
+</code></pre><p>完成!</p>
+<h2 id="总结与展望">总结与展望</h2><p>因为观察者模式应用之广，本来想发散出去讲的，浏览器中的观察者模式、前后端数据交互中的观察者模式，发现涉及的内容太多，根本停不下来，所以先大致对观察者模式做个简单介绍，后续想到再写，让大家了解观察者模式的两个特性，为解耦而生、为事件而生。下一篇博客里我打算讲讲当前前端比较火的backbone、angularjs以及一些MVP框架中的观察者模式的应用。</p>
+<h2 id="后记">后记</h2><p>因为之前一段时间比较忙以及很久都没写过博客，前端公众号虽然筹备了很久但是一直没去写，相信万事开头难，千里之行始于足下。如有建议或者意见，欢迎反馈。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+ </div>
+
+        
+
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/2803118?v=3&s=460" alt="leaven" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">leaven</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leaven" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/leaven" target="_blank">weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">leaven</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leaven"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

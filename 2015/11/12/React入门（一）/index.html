@@ -1,0 +1,742 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="初探ReactWhy use React
+1、面向View层开发，一切皆组件2、单向数据流3、VirtualDom，高性能渲染4、Learn once，write everywhere.(React Native for IOS、React Native for Android)5、github star数量已破3W
+
+Begin With React 1、require &amp;#39;react&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探React">
+<meta property="og:url" content="http://leavenfe.com/2015/11/12/React入门（一）/index.html">
+<meta property="og:site_name" content="前端汇">
+<meta property="og:description" content="初探ReactWhy use React
+1、面向View层开发，一切皆组件2、单向数据流3、VirtualDom，高性能渲染4、Learn once，write everywhere.(React Native for IOS、React Native for Android)5、github star数量已破3W
+
+Begin With React 1、require &amp;#39;react&amp;#">
+<meta property="og:updated_time" content="2015-11-19T06:15:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初探React">
+<meta name="twitter:description" content="初探ReactWhy use React
+1、面向View层开发，一切皆组件2、单向数据流3、VirtualDom，高性能渲染4、Learn once，write everywhere.(React Native for IOS、React Native for Android)5、github star数量已破3W
+
+Begin With React 1、require &amp;#39;react&amp;#">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 初探React | 前端汇 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7b5185b3a08dbeb21d3c73e451664bd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">前端汇</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              初探React
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-12T21:42:26+08:00" content="2015-11-12">
+            2015-11-12
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/12/React入门（一）/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/12/React入门（一）/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="初探React">初探React</h1><h2 id="Why_use_React">Why use React</h2><blockquote>
+<p>1、面向<strong>View</strong>层开发，一切皆组件<br>2、单向数据流<br>3、VirtualDom，高性能渲染<br>4、Learn once，write everywhere.(React Native for IOS、React Native for Android)<br>5、github star数量已破3W</p>
+</blockquote>
+<h2 id="Begin_With_React">Begin With React</h2><p> 1、<code>require &#39;react&#39;</code><br> 2、<code>require &#39;react-dom&#39;</code><br> 3、因为<code>react</code>语法需要<code>jsx</code>编译引擎，所以需要引入<code>jsx</code>编译脚本，<a href="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js" target="_blank" rel="external">传送门</a></p>
+<p>现在我们在页面中渲染一个<a href="https://github.com/leaven/react-demos/blob/master/demo1.html" target="_blank" rel="external">HelloWorld</a></p>
+<pre><code>var HelloWorld = React.createClass<span class="params">({
+  render: function<span class="params">()</span> {
+    return <span class="params">(
+        &lt;div&gt;
+          HelloWorld
+        &lt;/div&gt;
+    )</span>;
+  }
+})</span>;
+ReactDOM.<span class="built_in">render</span><span class="params">(
+  &lt;HelloWorld /&gt;,
+  document.getElementById<span class="params">(<span class="string">"helloworld"</span>)</span>
+)</span>;
+</code></pre><p>实际效果请戳<a href="http://leavenfe.com/react-demos/demo1.html">这里</a><br>  <code>ReactDOM.render</code>能将<code>JSX</code>模板编译成<code>HTML</code>插入到相应的<code>element</code>中。<br>  <strong>注意</strong>：<br>  1、自定义的类必须以大写字母开头，如果用小写字母会被认为是标准<code>html</code>元素，导致不能被解析**；<br>  2、<code>return</code>返回必须需要<code>dom</code>标签包裹，否则会不能被解析；<br>  3、JSX 的基本语法规则：遇到 HTML 标签（以 &lt; 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。</p>
+<h2 id="Props">Props</h2><p>Props是组件数据传递的载体，外部数据通过props将数据传递到组件内部，下面我们通过一个例子说明一下，<em><a href="https://github.com/leaven/react-demos/blob/master/demo3.html" target="_blank" rel="external">源码地址</a></em></p>
+<pre><code><span class="keyword">var</span> HelloWorld = React.createClass({
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> (
+        &lt;div&gt;
+          Hello,{<span class="keyword">this</span>.props.name}
+        &lt;/div&gt;
+    );
+  }
+});
+ReactDOM.render(
+  &lt;HelloWorld  name=<span class="string">"leaven"</span>/&gt;,
+  document.getElementById(<span class="string">'example'</span>)
+);
+</code></pre><p>实际效果戳<a href="http://leavenfe.com/react-demos/demo3.html">这里</a><br>组件上可以增加任意属性（类似于我们在<code>dom</code>上添加<code>data-*</code>），组件内中可以通过<code>this.props.*</code>获取到组件上的自定义属性。</p>
+<h2 id="State">State</h2><p><code>state</code>是<code>React</code>中一个非常重要的概念，所有的UI改变都是通过改变state发生，<code>state</code>改变能够触发UI重绘，所以，所有的交互状态我们都应该尝试去改变<code>state</code>，这一点跟传统的<code>dom</code>交互大不一样，看下面的一个<a href="http://leavenfe.com/react-demos/demo4.html">例子</a></p>
+<pre><code><span class="keyword">var</span> HelloWorld = React.createClass({
+  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+
+    <span class="keyword">this</span>.loadData();
+    <span class="keyword">return</span> {data: []};
+  },
+  loadData: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">var</span> me = <span class="keyword">this</span>;
+      $.getJSON(<span class="keyword">this</span>.props.url, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> </span>{
+        me.setState({data: data});
+      });
+  },
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">var</span> person = <span class="keyword">this</span>.state.data.map(<span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> </span>{
+      <span class="keyword">return</span> (
+        &lt;div className=<span class="string">"name"</span> key={i}&gt;
+          name:{d.name}, age:{d.age}
+        &lt;/div&gt; 
+      )
+    });
+    <span class="keyword">return</span> (
+       &lt;div&gt;
+          {person}
+       &lt;/div&gt;
+    );
+  }
+});
+ReactDOM.render(
+  &lt;HelloWorld url=<span class="string">"./data/demo4.json"</span>/&gt;,
+  document.getElementById(<span class="string">'example'</span>)
+);
+</code></pre><p><em><a href="https://github.com/leaven/react-demos" target="_blank" rel="external">源码地址</a></em><br>在请求到数据后，我们将<code>state</code>置为获得的<code>data</code>，导致<code>render</code>方法被执行。<br><strong>注意</strong><br>1、这里的<code>map</code>会返回一个数组，每一个元素都需要设置一个<code>key</code>，这里建议<code>key</code>设为数组的索引值，因为索引值能保证每个不一样；<br>2、关于<code>state</code>及<code>props</code>适用场景请参考<a href="http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html" target="_blank" rel="external">这里</a>。</p>
+<h2 id="事件监听">事件监听</h2><p><code>React</code>中绑定事件监听类似于<code>DOM</code> 0级事件，看下面的<a href="http://leavenfe.com/react-demos/demo2.html">例子</a></p>
+<pre><code><span class="keyword">var</span> HelloWolrd = React.createClass({
+  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> {
+          isName: <span class="literal">false</span>
+      }
+  },
+  changeValue: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">this</span>.setState({<span class="string">"isName"</span>: (<span class="keyword">this</span>.state.isName?<span class="literal">false</span>: <span class="literal">true</span>)});
+  },
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> (
+          &lt;div&gt;
+              Hello, {<span class="keyword">this</span>.state.isName? <span class="string">'leaven'</span>: <span class="string">'world'</span>}
+              &lt;button onClick={<span class="keyword">this</span>.changeValue}&gt;点击此处改变name&lt;/button&gt;      
+          &lt;/div&gt;
+        );
+  }
+});
+ReactDOM.render(
+  &lt;HelloWolrd /&gt;,
+  document.getElementById(<span class="string">'example'</span>)
+);
+</code></pre><p><em><a href="https://github.com/leaven/react-demos/blob/master/demo2.html" target="_blank" rel="external">源码地址</a></em><br><strong>注意</strong><br>1、<code>react</code>中事件回调函数中的<code>this</code>会自动绑定到实例上，这里有个特殊情况，就是在<code>es6</code>中需要手动绑定。</p>
+<h2 id="获取DOM对象">获取DOM对象</h2><p>获取组件内部的dom对象可以通过<code>ref</code>，<code>this.refs</code>是一个<code>dom</code>节点的引用数组，看下面的<a href="http://leavenfe.com/react-demos/demo7.html">例子</a></p>
+<pre><code><span class="keyword">var</span> InputChange = React.createClass({
+    getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> {
+        inputValue: <span class="string">''</span>
+      }
+    },
+    getValue: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">var</span> value = <span class="keyword">this</span>.refs.nameInput.value;
+      <span class="keyword">this</span>.setState({<span class="string">"name"</span>: value});
+    },
+    render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> (
+        &lt;div&gt;
+          &lt;input type=<span class="string">"text"</span> ref=<span class="string">"nameInput"</span> onInput={<span class="keyword">this</span>.getValue} /&gt;
+          &lt;span&gt;您输入的名字是：{<span class="keyword">this</span>.state.name}&lt;/span&gt;
+        &lt;/div&gt;
+      )
+    }
+  });
+  ReactDOM.render(
+    &lt;InputChange /&gt;,
+    document.getElementById(<span class="string">"example"</span>)
+  );
+</code></pre><p><a href="https://github.com/leaven/react-demos/blob/master/demo7.html" target="_blank" rel="external">源码地址</a><br>上面代码将<code>input</code>挂到了一个<code>nameInput</code>引用对象，在组件类中通过<code>this.refs.nameInput</code>引用到该<code>input</code>。</p>
+<h2 id="组件生命周期">组件生命周期</h2><p><code>React</code>跟传统的<code>DOM</code>编程不一样，在React中组件的生命状态都在一个<code>order</code>里面，井井有条，什么阶段执行什么方法都由<code>React</code>去完成，所以会比较清晰。<br>1、<strong>componentWillMount</strong><br>在组件即将<code>render</code>之前立即调用，只会被调用一次<br>2、<strong>componentDidMount</strong><br>在组件<code>render</code>之后立即调用，只会被调用一次<br>3、<strong>componentWillReceiveProps</strong><br>在改变组件的<code>props</code>属性时立即调用，在组件初始化的时候不会被调用<br>4、<strong>shouldComponentUpdate</strong><br>在组件<code>props</code>或者<code>state</code>状态改变之前调用，在组件初始化或者用<code>forceUpdate</code>方法时不会被调用，可以利用这个方法<code>return false</code>即可阻止<code>componentWillUpdate</code>调用<br>5、<strong>componentWillUpdate</strong><br>在<code>shouldComponentUpdate</code>调用之后立即调用<br>6、<strong>componentDidUpdate</strong><br>在<code>componentWillUpdate</code>之后刷新<code>DOM</code>完成之后调用<br>7、<strong>componentWillUnmount</strong><br>在组件被销毁的时候调用</p>
+<h2 id="React未来展望">React未来展望</h2><p>1、配合<code>Flux</code>、<code>Redux</code>等框架构建大型应用<br><code>React</code>只是提供了<code>View</code>层，面对复杂的数据处理显得有些乏力，借助于<code>Flux</code>、<code>Redux</code>等框架，我们可以轻松实现数据管理。<br>2、 <code>React Native</code>构建通用<code>UI</code>组件</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/02/写在2016/" rel="prev">写在2016</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/04/前端开发之观察者模式/" rel="next">前端开发之观察者模式</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/11/12/React入门（一）/"
+                   data-title="初探React" data-url="http://leavenfe.com/2015/11/12/React入门（一）/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/2803118?v=3&s=460" alt="leaven" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">leaven</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leaven" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/leaven" target="_blank">weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初探React"><span class="nav-number">1.</span> <span class="nav-text">初探React</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why_use_React"><span class="nav-number">1.1.</span> <span class="nav-text">Why use React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Begin_With_React"><span class="nav-number">1.2.</span> <span class="nav-text">Begin With React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Props"><span class="nav-number">1.3.</span> <span class="nav-text">Props</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#State"><span class="nav-number">1.4.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件监听"><span class="nav-number">1.5.</span> <span class="nav-text">事件监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取DOM对象"><span class="nav-number">1.6.</span> <span class="nav-text">获取DOM对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件生命周期"><span class="nav-number">1.7.</span> <span class="nav-text">组件生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React未来展望"><span class="nav-number">1.8.</span> <span class="nav-text">React未来展望</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">leaven</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leaven"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
